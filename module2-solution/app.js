@@ -6,13 +6,20 @@
 	.service('ShoppingListCheckOffService', ShoppingListCheckOffService);
 
 	ToBuyController.$inject = ['ShoppingListCheckOffService'];
-	function ToBuyController($scope){
+	function ToBuyController(ShoppingListCheckOffService){
+		var self = this;
 
+		self.addToBought = function(index){
+			ShoppingListCheckOffService.addToBought(index);
+		}
+
+		self.items = ShoppingListCheckOffService.getToBuyItems();
 	}
 
 	AlreadyBoughtController.$inject = ['ShoppingListCheckOffService'];
-	function AlreadyBoughtController($scope){
-
+	function AlreadyBoughtController(ShoppingListCheckOffService){
+		var self = this;
+		self.items = ShoppingListCheckOffService.getBoughtItems();
 	}
 
 	function ShoppingListCheckOffService(){
@@ -25,6 +32,20 @@
 			{ name: "cookies4", quantity: 9},
 			{ name: "cookies5", quantity: 1}];
 		var boughtItems = [];
+
+		service.addToBought = function(index){
+			boughtItems.push(toBuyItems[index]);
+			toBuyItems.splice(index, 1);
+		};
+
+		service.getToBuyItems = function(){
+			return toBuyItems;
+		};
+		service.getBoughtItems = function(){
+			return boughtItems;
+		};
+
+
 	}
 
 

@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="col-xs-8 col-xs-offset-2">
 		<div ng-show="!myInfoCtrl.userInfo.firstname">
-			Not Signed Up Yet. Sign up Now!
+			Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a>
 		</div>
 
 		<table class="table" ng-hide="!myInfoCtrl.userInfo.firstname">

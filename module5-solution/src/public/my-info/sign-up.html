@@ -1,0 +1,35 @@
+<div class="container">
+	<form class="col-xs-8 col-xs-offset-2" name="signUpForm">
+	  <div class="form-group">
+	    <label for="firstname">First Name</label>
+	    <input type="text" class="form-control" id="firstname" placeholder="Enter first name" ng-model="signUpCtrl.user.firstname" required>
+	  </div>
+	  <div class="form-group">
+	    <label for="lastname">Last Name</label>
+	    <input type="text" class="form-control" id="lastname" placeholder="Enter last name" ng-model="signUpCtrl.user.lastname" required>
+	  </div>
+	  <div class="form-group">
+	    <label for="emailAddress">Email address</label>
+	    <input type="email" class="form-control" id="emailAddress" placeholder="Enter email" ng-model="signUpCtrl.user.email" required>
+	  </div>
+	  <div class="form-group">
+	    <label for="poneNumber">Phone Number</label>
+	    <input type="text" class="form-control" id="poneNumber" placeholder="Enter phone number" ng-model="signUpCtrl.user.ponenumber" required>
+	  </div>
+	  <div class="form-group">
+	    <label for="menuNumber">Favorite Dish</label>
+	    <input type="text" class="form-control" id="menuNumber" placeholder="Enter menu number"
+	    ng-model="signUpCtrl.user.menunumber" >
+	    <br>
+	    <div class="alert alert-danger" role="alert" ng-show="signUpCtrl.hasError">
+		  No such menu number exists.
+		</div>
+	  </div>
+	  <div class="form-group">
+	  	<button ng-disabled="signUpForm.$invalid" ng-click="signUpCtrl.submit()" class="btn btn-primary">Submit</button>
+	  </div>
+	  <div ng-show="signUpCtrl.saved" class="alert alert-success" role="alert" ng-show="signUpCtrl.hasError">
+		  Your information has been saved
+		</div>
+	</form>
+</div>

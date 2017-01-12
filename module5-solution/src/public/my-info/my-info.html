@@ -1,0 +1,16 @@
+<div class="container">
+	<div class="col-xs-8 col-xs-offset-2">
+		<div ng-show="!myInfoCtrl.userInfo.firstname">
+			Not Signed Up Yet. Sign up Now!
+		</div>
+
+		<table class="table" ng-hide="!myInfoCtrl.userInfo.firstname">
+			<tr><td>First Name</td><td>{{myInfoCtrl.userInfo.firstname}}</td></tr>
+			<tr><td>Last Name</td><td>{{myInfoCtrl.userInfo.lastname}}</td></tr>
+			<tr><td>Email address</td><td>{{myInfoCtrl.userInfo.email}}</td></tr>
+			<tr><td>Phone Number</td><td>{{myInfoCtrl.userInfo.ponenumber}}</td></tr>
+		</table>
+
+		<menu-item ng-show="myInfoCtrl.userInfo.favoriteItem.id" menu-item="myInfoCtrl.userInfo.favoriteItem"></menu-item>
+	</div>
+</div>
